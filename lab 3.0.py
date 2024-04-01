@@ -4,7 +4,7 @@ import time
 import datetime
 import threading
 
-# Base class for File
+
 class File:
     def __init__(self, filename, filepath):
         self.filename = filename
@@ -21,7 +21,7 @@ class File:
     def info(self):
         pass
 
-# Derived classes for different file types
+
 class TextFile(File):
     def __init__(self, filename, filepath):
         super().__init__(filename, filepath)
@@ -146,12 +146,10 @@ class FolderMonitor:
                 if updated_time > self.current_snapshot_time:
                     print(f"{filename} Changed")
                     self.current_snapshot_time = updated_time
-
-# Main program loop
+                    
 folder_path = 'C:/path/to/your/folder'  # Replace with your folder path
 folder_monitor = FolderMonitor(folder_path)
 
-# Start the scheduled detection thread
 detection_thread = threading.Thread(target=folder_monitor.detect_changes)
 detection_thread.start()
 
